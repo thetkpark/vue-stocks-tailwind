@@ -4,10 +4,10 @@
       class="bg-purple-500 w-auto h-auto rounded-lg m-8 flex justify-between items-center text-white px-8"
     >
       <!-- BRAND -->
-      <div class="flex inline-block cursor-pointer p-3 mr-3">
+      <router-link tag="div" to="/" class="brand flex inline-block cursor-pointer p-3 mr-3">
         <i class="inline-block material-icons text-5xl font-bold">trending_up</i>
         <p class="inline-block mt-2 ml-3 text-2xl font-bold">STOCK</p>
-      </div>
+      </router-link>
       <!-- BRAND -->
 
       <!-- CONTENT -->
@@ -77,7 +77,7 @@ export default {
   data() {
     return {
       funds: 1000,
-      auth: false
+      auth: true
     };
   }
 };
@@ -86,5 +86,9 @@ export default {
 <style scoped>
 .router-link-exact-active {
   background-color: #6b46c1;
+}
+
+.router-link-exact-active.brand {
+  background-color: #9f7aea;
 }
 </style>

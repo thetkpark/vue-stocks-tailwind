@@ -3,6 +3,7 @@
     <nav
       class="bg-purple-500 w-auto h-auto rounded-lg m-8 flex flex-col justify-start text-white px-8"
     >
+      <!-- RESPONSIVE BURGER -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle hidden" />
       <label
         for="nav-toggle"
@@ -10,12 +11,13 @@
       >
         <i class="material-icons">menu</i>
       </label>
+      <!-- RESPONSIVE BURGER -->
 
       <!-- BRAND -->
-      <div class="flex cursor-pointer p-3 mr-3">
+      <router-link tag="div" to="/" class="flex cursor-pointer p-3 mr-3 brand">
         <i class="inline-block material-icons text-5xl font-bold">trending_up</i>
         <p class="inline-block mt-2 ml-3 text-2xl font-bold">STOCK</p>
-      </div>
+      </router-link>
       <!-- BRAND -->
       <!-- CONTENT -->
       <div class="nav-target">
@@ -100,5 +102,9 @@ export default {
 }
 .router-link-exact-active {
   background-color: #6b46c1;
+}
+
+.router-link-exact-active.brand {
+  background-color: #9f7aea;
 }
 </style>
