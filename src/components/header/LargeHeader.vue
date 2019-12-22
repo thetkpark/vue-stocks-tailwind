@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav
-      class="bg-purple-500 w-auto h-16 rounded-lg m-8 flex justify-between items-center text-white px-8"
+      class="bg-purple-500 w-auto h-auto rounded-lg m-8 flex justify-between items-center text-white px-8"
     >
       <!-- BRAND -->
       <div class="flex inline-block cursor-pointer p-3 mr-3">

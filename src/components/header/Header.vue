@@ -31,7 +31,7 @@
         </div>
         <!-- LEFT -->
         <!-- DIVIDER -->
-        <div>
+        <div v-if="auth">
           <hr class="mt-1 w-auto" />
         </div>
         <!-- DIVIDER -->
@@ -40,11 +40,17 @@
           <!-- RIGHT CONTENT : AUTH -->
           <p v-if="auth" class="py-3 px-4 m-1 mr-1">{{ funds }}</p>
           <a v-if="auth" class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer">End Day</a>
-          <a v-if="auth" class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer">Log Out</a>
+          <a
+            v-if="auth"
+            class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer mb-3"
+          >Log Out</a>
           <!-- RIGHT CONTENT : AUTH -->
           <!-- RIGHT CONTENT : UNAUTH -->
           <a v-if="!auth" class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer">Sign Up</a>
-          <a v-if="!auth" class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer">Sign In</a>
+          <a
+            v-if="!auth"
+            class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer mb-3"
+          >Sign In</a>
           <!-- RIGHT CONTENT : UNAUTH -->
         </div>
         <!-- RIGHT -->
