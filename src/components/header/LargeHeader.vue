@@ -16,9 +16,21 @@
         <div class="flex">
           <!-- LEFT CONTENT : AUTH -->
           <div v-if="auth" class="flex inline-block items-center">
-            <a class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer">Home</a>
-            <a class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer">Portfolio</a>
-            <a class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer">Stocks</a>
+            <router-link
+              tag="a"
+              to="/"
+              class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
+            >Home</router-link>
+            <router-link
+              tag="a"
+              to="/portfolio"
+              class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
+            >Portfolio</router-link>
+            <router-link
+              tag="a"
+              to="/stocks"
+              class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
+            >Stocks</router-link>
           </div>
           <!-- LEFT CONTENT : AUTH -->
         </div>
@@ -38,14 +50,19 @@
           >Log Out</a>
           <!-- RIGHT CONTENT : AUTH -->
           <!-- RIGHT CONTENT : UNAUTH -->
-          <a
+          <router-link
             v-if="!auth"
+            tag="a"
+            to="signup"
             class="py-3 px-4 mt-1 mr-1 hover:bg-purple-700 rounded cursor-pointer"
-          >Sign Up</a>
-          <a
+          >Sign Up</router-link>
+          <router-link
             v-if="!auth"
+            tag="a"
+            to="signin"
             class="py-3 px-4 mt-1 mr-1 hover:bg-purple-700 rounded cursor-pointer"
-          >Sign In</a>
+          >Sign In</router-link>
+
           <!-- RIGHT CONTENT : UNAUTH -->
         </div>
         <!-- RIGHT -->
@@ -60,10 +77,14 @@ export default {
   data() {
     return {
       funds: 1000,
-      auth: true
+      auth: false
     };
   }
 };
 </script>
 
-<style></style>
+<style scoped>
+.router-link-exact-active {
+  background-color: #6b46c1;
+}
+</style>
