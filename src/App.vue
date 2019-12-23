@@ -10,6 +10,9 @@ import Header from "./components/header/Header.vue";
 export default {
   components: {
     "app-header": Header
+  },
+  created() {
+    this.$store.dispatch("autoLogin");
   }
 };
 </script>
