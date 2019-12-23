@@ -29,8 +29,8 @@ export default {
   },
   computed: {
     funds() {
-      // return this.$store.getters.funds;
-      return 999999999999999999999999;
+      return this.$store.getters.funds;
+      // return 999999999999999999999999;
     }
   },
   methods: {

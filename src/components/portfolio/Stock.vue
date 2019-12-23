@@ -39,6 +39,11 @@ export default {
       this.$store.dispatch("sellStock", order);
       this.quantity = null;
     }
+  },
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    }
   }
 };
 </script>
