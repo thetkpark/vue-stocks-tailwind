@@ -18,13 +18,11 @@
         for="email"
         class="absolute top-0 left-0 mt-5 ml-3 bg-white px-2"
         id="email-label"
-        >Email</label
-      >
+      >Email</label>
       <i
         class="material-icons text-gray-300 absolute bottom-0 left-0 mb-2 ml-6 lg:mb-3 lg:ml-5 lg:text-3xl"
         id="email-icon"
-        >email</i
-      >
+      >email</i>
     </div>
     <!-- EMAIL FORM -->
     <!-- PASSWORD FORM -->
@@ -40,21 +38,17 @@
         for="email"
         class="absolute top-0 left-0 mt-5 ml-3 bg-white px-2"
         id="password-label"
-        >Password</label
-      >
+      >Password</label>
       <i
         class="material-icons text-gray-300 absolute bottom-0 left-0 mb-2 ml-6 lg:mb-3 lg:ml-5 lg:text-3xl"
         id="password-icon"
-        >lock</i
-      >
+      >lock</i>
     </div>
     <!-- PASSWORD FORM -->
     <button
       @click="signin"
       class="mt-8 text-xl font-semibold px-5 py-4 border-purple-500 rounded border-2 border-solid text-purple-700 w-40 text-center self-center hover:bg-purple-500 hover:text-white"
-    >
-      Sign In
-    </button>
+    >Sign In</button>
   </div>
 </template>
 
@@ -67,7 +61,12 @@ export default {
     };
   },
   methods: {
-    signin() {
+    async signin() {
+      const formData = {
+        email: this.email,
+        password: this.password
+      };
+      this.$store.dispatch("signin", formData);
       this.email = null;
       this.password = null;
     }
