@@ -7,8 +7,6 @@
       :stock="stock"
     ></app-stock>
     {{stocks}}
-    <hr />
-    {{stocks[0]}}
   </div>
 </template>
 
@@ -24,6 +22,8 @@ export default {
     }
   },
   mounted() {
+    console.log("STOCKS MOUNTED");
+
     this.$store.dispatch("initStocks");
   }
 };
