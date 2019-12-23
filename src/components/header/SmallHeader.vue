@@ -4,7 +4,7 @@
       class="bg-purple-500 w-auto h-auto rounded-lg m-8 flex flex-col justify-start text-white px-8"
     >
       <!-- RESPONSIVE BURGER -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle w-0 h-0" />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle hidden" />
       <label
         for="nav-toggle"
         class="absolute top-0 right-0 mt-10 mr-16 px-4 pt-4 pb-3 rounded hover:bg-purple-700"
@@ -106,7 +106,7 @@ export default {
 </script>
 
 <style scoped>
-.nav-toggle:focus ~ .nav-target {
+.nav-toggle:checked ~ .nav-target {
   display: block;
 }
 .nav-target {
