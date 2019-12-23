@@ -4,7 +4,7 @@
       class="bg-purple-500 w-auto h-auto rounded-lg m-8 flex flex-col justify-start text-white px-8"
     >
       <!-- RESPONSIVE BURGER -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle hidden" />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle w-0 h-0" />
       <label
         for="nav-toggle"
         class="absolute top-0 right-0 mt-10 mr-16 px-4 pt-4 pb-3 rounded hover:bg-purple-700"
@@ -15,7 +15,9 @@
 
       <!-- BRAND -->
       <router-link tag="div" to="/" class="flex cursor-pointer p-3 mr-3 brand">
-        <i class="inline-block material-icons text-5xl font-bold">trending_up</i>
+        <i class="inline-block material-icons text-5xl font-bold"
+          >trending_up</i
+        >
         <p class="inline-block mt-2 ml-3 text-2xl font-bold">STOCK</p>
       </router-link>
       <!-- BRAND -->
@@ -29,17 +31,20 @@
               tag="a"
               to="/"
               class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
-            >Home</router-link>
+              >Home</router-link
+            >
             <router-link
               tag="a"
               to="/portfolio"
               class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
-            >Portfolio</router-link>
+              >Portfolio</router-link
+            >
             <router-link
               tag="a"
               to="/stocks"
               class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
-            >Stocks</router-link>
+              >Stocks</router-link
+            >
           </div>
           <!-- LEFT CONTENT : AUTH -->
         </div>
@@ -53,11 +58,16 @@
         <div class="flex flex-col">
           <!-- RIGHT CONTENT : AUTH -->
           <p v-if="auth" class="py-3 px-4 m-1 mr-1">{{ funds }}</p>
-          <a v-if="auth" class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer">End Day</a>
+          <a
+            v-if="auth"
+            class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer"
+            >End Day</a
+          >
           <a
             v-if="auth"
             class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer mb-3"
-          >Log Out</a>
+            >Log Out</a
+          >
           <!-- RIGHT CONTENT : AUTH -->
           <!-- RIGHT CONTENT : UNAUTH -->
           <router-link
@@ -65,13 +75,15 @@
             tag="a"
             to="/signup"
             class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer"
-          >Sign Up</router-link>
+            >Sign Up</router-link
+          >
           <router-link
             v-if="!auth"
             tag="a"
             to="/signin"
             class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer mb-4"
-          >Sign In</router-link>
+            >Sign In</router-link
+          >
 
           <!-- RIGHT CONTENT : UNAUTH -->
         </div>
@@ -94,7 +106,7 @@ export default {
 </script>
 
 <style scoped>
-.nav-toggle:checked ~ .nav-target {
+.nav-toggle:focus ~ .nav-target {
   display: block;
 }
 .nav-target {
