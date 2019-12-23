@@ -52,7 +52,7 @@
         <!-- RIGHT -->
         <div class="flex flex-col">
           <!-- RIGHT CONTENT : AUTH -->
-          <p v-if="auth" class="py-3 px-4 m-1 mr-1">{{ funds }}</p>
+          <p v-if="auth" class="py-3 px-4 m-1 mr-1">{{ funds | currency}}</p>
           <a
             v-if="auth"
             @click="onEndDay"

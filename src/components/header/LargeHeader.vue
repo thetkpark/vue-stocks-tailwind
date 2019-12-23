@@ -39,7 +39,7 @@
         <!-- RIGHT -->
         <div class="flex inline-block items-center">
           <!-- RIGHT CONTENT : AUTH -->
-          <p v-if="auth" class="py-3 px-4 mt-1 mr-1">{{ funds }}</p>
+          <p v-if="auth" class="py-3 px-4 mt-1 mr-1">{{ funds | currency }}</p>
           <a
             v-if="auth"
             @click="onEndDay"

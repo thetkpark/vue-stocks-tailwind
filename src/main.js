@@ -7,6 +7,12 @@ import "./assets/tailwind.css";
 
 Vue.config.productionTip = false;
 
+Vue.filter("currency", el => {
+  if (el) {
+    return "$ " + el.toLocaleString();
+  }
+});
+
 new Vue({
   router,
   store,

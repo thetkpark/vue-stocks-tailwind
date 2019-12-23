@@ -3,7 +3,7 @@
     <div class="w-full h-full border-purple-600 border-solid border-2 rounded-t-lg pt-3 px-3">
       <div class="flex justify-between items-baseline">
         <h1 class="text-xl mt-2">{{ stock.name }}</h1>
-        <h1 class="text-sm">{{stock.price}}</h1>
+        <h1 class="text-sm">{{stock.price | currency}}</h1>
       </div>
       <input
         type="number"
