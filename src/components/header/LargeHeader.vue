@@ -4,14 +4,8 @@
       class="bg-purple-500 w-auto h-auto rounded-lg flex justify-between items-center text-white px-8"
     >
       <!-- BRAND -->
-      <router-link
-        tag="div"
-        to="/"
-        class="brand flex inline-block cursor-pointer p-3 mr-3"
-      >
-        <i class="inline-block material-icons text-5xl font-bold"
-          >trending_up</i
-        >
+      <router-link tag="div" to="/" class="brand flex inline-block cursor-pointer p-3 mr-3">
+        <i class="inline-block material-icons text-5xl font-bold">trending_up</i>
         <p class="inline-block mt-2 ml-3 text-2xl font-bold">STOCK</p>
       </router-link>
       <!-- BRAND -->
@@ -26,20 +20,17 @@
               tag="a"
               to="/"
               class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
-              >Home</router-link
-            >
+            >Home</router-link>
             <router-link
               tag="a"
               to="/portfolio"
               class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
-              >Portfolio</router-link
-            >
+            >Portfolio</router-link>
             <router-link
               tag="a"
               to="/stocks"
               class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
-              >Stocks</router-link
-            >
+            >Stocks</router-link>
           </div>
           <!-- LEFT CONTENT : AUTH -->
         </div>
@@ -51,14 +42,14 @@
           <p v-if="auth" class="py-3 px-4 mt-1 mr-1">{{ funds }}</p>
           <a
             v-if="auth"
+            @click="onEndDay"
             class="py-3 px-4 mt-1 mr-1 hover:bg-purple-700 rounded cursor-pointer"
-            >End Day</a
-          >
+          >End Day</a>
           <a
             v-if="auth"
+            @click="onLogout"
             class="py-3 px-4 mt-1 mr-1 hover:bg-purple-700 rounded cursor-pointer"
-            >Log Out</a
-          >
+          >Log Out</a>
           <!-- RIGHT CONTENT : AUTH -->
           <!-- RIGHT CONTENT : UNAUTH -->
           <router-link
@@ -66,15 +57,13 @@
             tag="a"
             to="signup"
             class="py-3 px-4 mt-1 mr-1 hover:bg-purple-700 rounded cursor-pointer"
-            >Sign Up</router-link
-          >
+          >Sign Up</router-link>
           <router-link
             v-if="!auth"
             tag="a"
             to="signin"
             class="py-3 px-4 mt-1 mr-1 hover:bg-purple-700 rounded cursor-pointer"
-            >Sign In</router-link
-          >
+          >Sign In</router-link>
 
           <!-- RIGHT CONTENT : UNAUTH -->
         </div>
@@ -87,11 +76,21 @@
 
 <script>
 export default {
-  data() {
-    return {
-      funds: 1000,
-      auth: true
-    };
+  computed: {
+    auth() {
+      return this.$store.getters.isAuth;
+    },
+    funds() {
+      return this.$store.getters.funds;
+    }
+  },
+  methods: {
+    onLogout() {
+      this.$store.dispatch("logout");
+    },
+    onEndDay() {
+      this.$store.dispatch("rndStock");
+    }
   }
 };
 </script>
