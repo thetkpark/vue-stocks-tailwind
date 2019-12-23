@@ -1,13 +1,13 @@
 <template>
   <div>
     <nav
-      class="bg-purple-500 w-auto h-auto rounded-lg m-8 flex flex-col justify-start text-white px-8"
+      class="bg-purple-500 w-auto h-auto rounded-lg flex flex-col justify-start text-white px-8 relative"
     >
       <!-- RESPONSIVE BURGER -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle hidden" />
       <label
         for="nav-toggle"
-        class="absolute top-0 right-0 mt-10 mr-16 px-4 pt-4 pb-3 rounded hover:bg-purple-700"
+        class="absolute top-0 right-0 mr-2 mt-2 px-4 pt-4 pb-3 rounded hover:bg-purple-700"
       >
         <i class="material-icons">menu</i>
       </label>
