@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <app-header></app-header>
+  <div id="app" class="flex flex-col items-center">
+    <app-header class="my-4 w-4/5"></app-header>
     <router-view></router-view>
   </div>
 </template>
@@ -14,8 +14,4 @@ export default {
 };
 </script>
 
-<style>
-body {
-  height: 200vh;
-}
-</style>
+<style></style>
