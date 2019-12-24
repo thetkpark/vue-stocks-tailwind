@@ -14,34 +14,14 @@
       <!-- RESPONSIVE BURGER -->
 
       <!-- BRAND -->
-      <router-link tag="div" to="/" class="flex cursor-pointer p-3 mr-3 brand">
-        <i class="inline-block material-icons text-5xl font-bold">trending_up</i>
-        <p class="inline-block mt-2 ml-3 text-2xl font-bold">STOCK</p>
-      </router-link>
+      <small-brand></small-brand>
       <!-- BRAND -->
+
       <!-- CONTENT -->
-      <div class="nav-target">
+      <div class="nav-target inline pb-2" @click="closeToggleNav">
         <!-- LEFT -->
-        <div class="flex flex-col">
-          <!-- LEFT CONTENT : AUTH -->
-          <div v-if="auth" class="flex flex-col flex-start">
-            <router-link
-              tag="a"
-              to="/"
-              class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
-            >Home</router-link>
-            <router-link
-              tag="a"
-              to="/portfolio"
-              class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
-            >Portfolio</router-link>
-            <router-link
-              tag="a"
-              to="/stocks"
-              class="py-3 px-4 mt-1 ml-1 hover:bg-purple-700 rounded cursor-pointer"
-            >Stocks</router-link>
-          </div>
-          <!-- LEFT CONTENT : AUTH -->
+        <div v-if="auth" class="flex flex-col flex-start">
+          <collapsible-link v-for="link in upperLinks" :key="link" :link="link"></collapsible-link>
         </div>
         <!-- LEFT -->
         <!-- DIVIDER -->
@@ -52,32 +32,21 @@
         <!-- RIGHT -->
         <div class="flex flex-col">
           <!-- RIGHT CONTENT : AUTH -->
-          <p v-if="auth" class="py-3 px-4 m-1 mr-1">{{ funds | currency}}</p>
-          <a
-            v-if="auth"
-            @click="onEndDay"
-            class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer"
-          >End Day</a>
-          <a
-            v-if="auth"
-            @click="onLogout"
-            class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer mb-3"
-          >Log Out</a>
+          <div class="flex flex-col" v-if="auth">
+            <p class="py-3 px-4 m-1 mr-1">{{ funds | currency}}</p>
+            <collapsible-button
+              v-for="button in buttons"
+              @logout="onLogout"
+              @endday="onEndDay"
+              :key="button"
+              :button="button"
+            ></collapsible-button>
+          </div>
           <!-- RIGHT CONTENT : AUTH -->
           <!-- RIGHT CONTENT : UNAUTH -->
-          <router-link
-            v-if="!auth"
-            tag="a"
-            to="/signup"
-            class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer"
-          >Sign Up</router-link>
-          <router-link
-            v-if="!auth"
-            tag="a"
-            to="/signin"
-            class="py-3 px-4 m-1 hover:bg-purple-700 rounded cursor-pointer mb-4"
-          >Sign In</router-link>
-
+          <div v-if="!auth" class="flex flex-col flex-start mb-4">
+            <collapsible-link v-for="link in lowerLinks" :key="link" :link="link"></collapsible-link>
+          </div>
           <!-- RIGHT CONTENT : UNAUTH -->
         </div>
         <!-- RIGHT -->
@@ -88,6 +57,9 @@
 </template>
 
 <script>
+import CollapsibleLink from "./CollapsibleLink.vue";
+import CollapsibleButton from "./CollapsibleButton.vue";
+import SmallBrand from "./SmallBrand.vue";
 export default {
   computed: {
     auth() {
@@ -103,6 +75,9 @@ export default {
     },
     onEndDay() {
       this.$store.dispatch("rndStock");
+    },
+    closeToggleNav() {
+      document.getElementById("nav-toggle").checked = false;
     }
   },
   mounted() {
@@ -118,6 +93,18 @@ export default {
       },
       true
     );
+  },
+  components: {
+    "collapsible-link": CollapsibleLink,
+    "collapsible-button": CollapsibleButton,
+    "small-brand": SmallBrand
+  },
+  data() {
+    return {
+      upperLinks: ["Home", "Portfolio", "Stocks"],
+      lowerLinks: ["SignIn", "SignUp"],
+      buttons: ["End Day", "Log Out"]
+    };
   }
 };
 </script>

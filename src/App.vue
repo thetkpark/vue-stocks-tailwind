@@ -17,4 +17,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+</style>
