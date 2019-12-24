@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import SmallHeader from "./SmallHeader.vue";
-import LargeHeader from "./LargeHeader.vue";
+import SmallHeader from "./SmallHeader/SmallHeader.vue";
+import LargeHeader from "./LargeHeader/LargeHeader.vue";
 export default {
   components: {
     "small-header": SmallHeader,

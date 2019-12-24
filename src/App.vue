@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="flex flex-col items-center">
     <app-header class="my-4 w-4/5"></app-header>
-    <router-view></router-view>
+    <router-view class="my-4 w-4/5"></router-view>
   </div>
 </template>
 
@@ -17,4 +17,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+</style>

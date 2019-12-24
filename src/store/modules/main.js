@@ -117,19 +117,21 @@ const actions = {
     const token = localStorage.getItem("token");
     const { data } = await axiosData.get("/api/user", { headers: { token } });
     const stocks = data.stocks;
-    console.log(JSON.stringify(stocks));
+    // console.log(JSON.stringify(stocks));
     stocks.forEach(el => {
       // console.log(JSON.stringify(el.quantity));
-      console.log(typeof el.quantity);
+      // console.log(typeof el.quantity);
       if (el.quantity > 0) {
-        console.log("MORE");
+        // console.log("MORE");
         commit("chStocks");
-        console.log(state.ch);
+        // console.log(state.ch);
       }
     });
     commit("setMyStocks", stocks);
   },
   async buyStock({ commit }, order) {
+    console.log(order);
+
     const token = localStorage.getItem("token");
     const { data } = await axiosData.post(
       "/api/user/stock",
@@ -145,9 +147,13 @@ const actions = {
       funds: data.funds,
       stocks: data.stocks
     };
+    console.log("BUY SUCCESS");
+
     commit("updatedStock", stockOrder);
   },
   async sellStock({ commit }, order) {
+    console.log(order);
+
     const token = localStorage.getItem("token");
     const { data } = await axiosData.put(
       "/api/user/stock",
@@ -159,6 +165,7 @@ const actions = {
         headers: { token }
       }
     );
+
     const stockOrder = {
       funds: data.funds,
       stocks: data.stocks
