@@ -104,6 +104,20 @@ export default {
     onEndDay() {
       this.$store.dispatch("rndStock");
     }
+  },
+  mounted() {
+    // MORE RESPONSIVE ON RESIZING WINDOW TO COLLAPSE NAVBAR AUTOMATIC
+    window.addEventListener(
+      "resize",
+      function() {
+        if (window.matchMedia("(min-width: 1000px)").matches) {
+          if (document.getElementById("nav-toggle").checked == true) {
+            document.getElementById("nav-toggle").checked = false;
+          }
+        }
+      },
+      true
+    );
   }
 };
 </script>
