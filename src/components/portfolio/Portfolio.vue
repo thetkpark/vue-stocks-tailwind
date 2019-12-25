@@ -6,13 +6,6 @@
       :key="stock._id"
       :stock="stock"
     ></app-stock>
-    {{myStocks[0]}}
-    <br />
-    {{myStocks[1]}}
-    <br />
-    {{myStocks[2]}}
-    <br />
-    {{myStocks[3]}}
   </div>
 </template>
 

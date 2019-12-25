@@ -6,7 +6,6 @@
       :key="stock._id"
       :stock="stock"
     ></app-stock>
-    {{stocks}}
   </div>
 </template>
 

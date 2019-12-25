@@ -33,7 +33,7 @@ export default {
   methods: {
     onSell() {
       const order = {
-        id: this.stock._id,
+        id: this.stock.stock._id,
         quantity: Number(this.quantity)
       };
       this.$store.dispatch("sellStock", order);

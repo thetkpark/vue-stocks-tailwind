@@ -30,18 +30,14 @@ export default {
   computed: {
     funds() {
       return this.$store.getters.funds;
-      // return 999999999999999999999999;
     }
   },
   methods: {
     onBuy() {
-      console.log("BUY SUCCESS");
       const order = {
         id: this.stock._id,
         quantity: Number(this.quantity)
       };
-      console.log(order);
-
       this.$store.dispatch("buyStock", order);
       this.quantity = null;
     }
